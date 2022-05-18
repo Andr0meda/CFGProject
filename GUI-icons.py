@@ -110,15 +110,15 @@ Label(window, text="{}".format(my_element['name']), fg="purple").pack()
 
 
 def load_image(element):
-    file_path = f"element_icons/{element}"
+    file_path = f"element_icons/{element}.jpg"
     img = ImageTk.PhotoImage(file=file_path)
     return img
 
 
 # icons
-    icon = load_image(my_element)
+icon = load_image(my_element["name"])
 
-    Label(window, image=icon).pack(pady=20)
+Label(window, image=icon).pack(pady=20)
 
 opponent_element = random_element()
 
