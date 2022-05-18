@@ -116,15 +116,9 @@ def load_image(element):
 
 
 # icons
-if my_element == "hydrogen":
     icon = load_image(my_element)
-elif my_element == "helium":
-    icon = load_image(my_element)
-else:
-    icon = load_image("lithium.jpg")
 
-
-Label(window, image=icon).pack(pady=20)
+    Label(window, image=icon).pack(pady=20)
 
 opponent_element = random_element()
 
