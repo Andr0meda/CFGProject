@@ -1,6 +1,8 @@
-from tkinter import *
+from tkinter import PhotoImage, Label, Button, Tk, Image
 import random
 import requests
+from PIL import ImageTk, Image as im
+
 
 window = Tk()
 window.title("Periodic Table Top Trumps")
@@ -107,18 +109,22 @@ Label(window, text="You were given the element:", font="Arial 15 italic", bg="li
 Label(window, text="{}".format(my_element['name']), fg="purple").pack()
 
 
+def load_image(element):
+    file_path = f"element_icons/{element}"
+    img = ImageTk.PhotoImage(file=file_path)
+    return img
+
+
 # icons
-
-def icon():
-    if my_element == "hydrogen":
-        icon = PhotoImage(file=r"C:\Users\tol28845\PycharmProjects\cfg-python\Week 7\Elements icons\hydrogen.jpg")
-    elif my_element == "helium":
-        icon = PhotoImage(file=r"C:\Users\tol28845\PycharmProjects\cfg-python\Week 7\Elements icons\helium.jpg")
-    else:
-        icon = PhotoImage(file=r"C:\Users\tol28845\PycharmProjects\cfg-python\Week 7\Elements icons\lithium.jpg")
+if my_element == "hydrogen":
+    icon = load_image(my_element)
+elif my_element == "helium":
+    icon = load_image(my_element)
+else:
+    icon = load_image("lithium.jpg")
 
 
-Label(window, Image=icon).pack(pady=20)
+Label(window, image=icon).pack(pady=20)
 
 opponent_element = random_element()
 
